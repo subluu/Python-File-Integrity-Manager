@@ -4,7 +4,7 @@ import os
 import time
 
 # Define a variable that is equal to the RAW string of the path you want to monitor.
-folder_path = r'/Users/luisdavalos/Desktop/Files'
+folder_path = r'/Users/jjfress/Desktop/Files'
 
 # Defining a function that checks if the baseline file exists and deletes it.
 def If_Baseline_Exists():
@@ -41,7 +41,7 @@ def create_baseline(folder_path):
 # Then it opens the baseline file that we created and adds the contents of the file to the dictionary under different keys
 def monitor_changes():
     file_dictionary = {}
-    with open(r'/Users/luisdavalos/Desktop/baseline.txt', 'r') as baseline_file:
+    with open(r'/Users/jjfress/Desktop/baseline.txt', 'r') as baseline_file:
         for line in baseline_file:
             file_path, file_hash = line.strip().split('|')
             file_dictionary[file_path] = file_hash
@@ -51,7 +51,7 @@ def monitor_changes():
     while True:
         time.sleep(1)
         files = []
-        for root, _, filenames in os.walk('/Users/luisdavalos/Desktop/Files'):
+        for root, _, filenames in os.walk('/Users/jjfress/Desktop/Files'):
             files.extend([os.path.join(root, filename) for filename in filenames])
 
 # And if the hash is not in the file dictionary we created with the baseline file, then that means a new file was created
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     response = input("Please enter 'A' or 'B': ").upper()
 
     if response == "--create":
-        create_baseline('/Users/luisdavalos/Desktop/Files')
+        create_baseline('/Users/jjfress/Desktop/Files')
     elif response == "--monitor":
         monitor_changes()
     else:
