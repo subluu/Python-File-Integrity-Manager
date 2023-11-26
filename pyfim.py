@@ -76,7 +76,7 @@ if __name__ == "__main__":
     print("\n[?] What would you like to do? [?]\n")
     print("      --create) Create new Baseline File?")
     print("      --monitor) Begin monitoring files with saved Baseline?\n")
-    response = input("Please enter 'A' or 'B': ").upper()
+    response = input("Please enter '--create' or '--monitor': ").upper()
 
     if response == "--create":
         create_baseline('/Users/jjfress/Desktop/Files')
